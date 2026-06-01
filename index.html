@@ -1,4 +1,39 @@
 <html>
+  <head>
+    <style>
+      body {
+      	font-family: monospace;
+      }
+    </style>
+    <script>
+var rc = 0x1;
+var gc = 0x2;
+var bc = 0x3;
+function update(id) {
+    var e = document.getElementById(id);
+    if (e != null) { 
+	str = `rgba(${rc},${gc},${bc},0.2)`;
+	e.style.backgroundColor = str;
+	rc += 5;
+	rc = rc % 0xFF;
+	gc += 20;
+	gc = gc % 0xFF;
+	bc += 30;
+	bc = bc % 0xFF;
+    }
+}
+function foobar() {
+    if (document.body?.style != null) {
+	update("glow1")
+	update("glow2")
+    }
+    setTimeout(function() {
+	foobar();
+    }, 500);
+}
+foobar();
+    </script>
+  </head>
   <body bgcolor="#AAAAFF" text="black">
     <title>Desafortunados Games</title>
     <center>
@@ -6,12 +41,21 @@
       <p>Play more games...</p>
       <p>Play more games...</p>
       <p>Play more games...</p>
-      <h1>Cheap|&gt; <a href="https://store.steampowered.com/app/2387290/NBF0/">NBF0</a> &lt;|the retro FPS!</h1>
-      <h1>Free|&gt; <a href="https://raould.github.io/pn0gstr0m/">PN0GSTR0M</a> &lt;|the retro paddle game!</h1>
-      <h1>Free|&gt; <a href="https://raould.github.io/sheepgate/">Sheepgate</a> &lt;|the retro shmup game!</h1>
+    </center>
+    <div id="glow1" style="width: 100%; height: 25px; background-color: gray;"></div>
+    <center>
+      <hr>
+      <h1>Free|&gt; <a href="https://raould.github.io/pn0gstr0m/">PN0GSTR0M</a> &lt;|the retro PADDLE game!</h1>
+      <h1>Free|&gt; <a href="https://raould.github.io/sheepgate/">Sheepgate</a> &lt;|the retro SHMUP game!</h1>
+      <hr>
       <h1>Video|&gt; <a href="https://www.youtube.com/watch?v=BARCw6xMLsQ">MZZL</a> &lt;|the retro projectile game!</h1>
+      <h1>Cheap|&gt; <a href="https://store.steampowered.com/app/2387290/NBF0/">NBF0</a> &lt;|the retro FPS!</h1>
+      <hr>
       <h1>Weird|&gt; <a href="https://www.youtube.com/watch?v=xUnbr0NZg3w&list=PLxMqvaNKx1cL2yila-UPujI08eNQrDGd9">Norcalledmvsic</a> &lt;|the soundtrack!</h1>
       <h1>SciFi|&gt; <a href="https://sketchfab.com/js_space/models">js_space</a> &lt;|trekker models!</h1>
+      <hr>
+      <p>your lobes will thank you</p>
     </center>
+    <div id="glow2" style="width: 100%; height: 25px; background-color: gray;"></div>
   </body>
 </html>
